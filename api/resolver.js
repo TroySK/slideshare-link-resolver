@@ -1,7 +1,7 @@
-var key = require('../utils/key');
 var sync = require('synchronize');
 var request = require('request');
-var _ = require('underscore');
+var mustache = require('mustache');
+var fs = require('fs');
 
 
 // The API that returns the in-email representation.
@@ -29,14 +29,17 @@ module.exports = function(req, res) {
     return;
   }
 
-  // Extract iframe code
-  var html;
-  try {
-    html = response.body.html.match(/<iframe.*frame>/)[0];
-  } catch (e) {
-    res.status(500).send('Invalid response from SlideShare oEmbed');
-    return;
-  }
+
+  var template = fs.readFileSync('views/slideshare.mustache').toString();
+
+  var html = mustache.to_html(template, {
+    "title": response.body.title,
+    "thumbnail": response.body.thumbnail,
+    "width": response.body.width,
+    "height": response.body.height,
+    "html": response.body.html.trim(),
+    "url": url
+  });
 
   res.json({
     body: html

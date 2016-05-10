@@ -10,9 +10,11 @@
     "type": "git",
     "url": "git@github.com:TroySK/slideshare-link-resolver.git"
   },
-  "author": "Chanpory Rith <chanpory@mixmax.com> (https://mixmax.com/)",
-  "contributors": ["Chanpory Rith <chanpory@mixmax.com> (https://mixmax.com/)",
-    "TroySK <troy@troysk.com> (https://www.troysk.com)"],
+  "author": "TroySK <troy@troysk.com> (https://www.troysk.com)",
+  "contributors": [
+    "Chanpory Rith <chanpory@mixmax.com> (https://mixmax.com/)",
+    "TroySK <troy@troysk.com> (https://www.troysk.com)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/TroySK/slideshare-link-resolver/issues"
@@ -22,6 +24,7 @@
     "body-parser": "^1.12.2",
     "cors": "^2.7.1",
     "express": "^4.12.3",
+    "mustache": "^2.2.1",
     "request": "^2.64.0",
     "synchronize": "^0.9.14",
     "underscore": "^1.8.3"
